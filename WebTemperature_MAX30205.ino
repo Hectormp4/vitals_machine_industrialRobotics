@@ -14,8 +14,8 @@
 #define MAX30205_I2C_Address 0x48
 
 // WiFi credentials - UPDATE THESE WITH YOUR NETWORK
-const char WIFI_SSID[] = "Hector network";
-const char WIFI_PASSWORD[] = "Swiss.!.13245";
+const char WIFI_SSID[] = "YOUR_NETWORK";
+const char WIFI_PASSWORD[] = "YOUR_PASSWORD";
 
 // Create web app instances
 UnoR4ServerFactory serverFactory;
@@ -97,4 +97,5 @@ void onTemperatureValueRequested() {
 
   // Send current temperature value (config is automatically sent by the library)
   temperaturePage.sendTemperature(temperature);
+
 }
