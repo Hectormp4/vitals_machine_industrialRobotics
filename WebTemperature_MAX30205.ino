@@ -1,11 +1,10 @@
 /*
-    // Add web apps to server
-    server.addApp(&homePage);
-    server.addApp(&temperaturePage);
+// Add web apps to server
+server.addApp(&homePage);
+server.addApp(&temperaturePage);
     
-    // Set 404 Not Found page (optional - for better user experience)
-    server.setNotFoundPage(DIYablesNotFoundPage());re display
-
+// Set 404 Not Found page (optional - for better user experience)
+server.setNotFoundPage(DIYablesNotFoundPage());re display
 */
 
 #include <DIYablesWebApps.h>
@@ -13,7 +12,8 @@
 
 #define MAX30205_I2C_Address 0x48
 
-/* WiFi credentials - UPDATE THESE WITH YOUR NETWORK
+/* 
+// WiFi credentials - UPDATE THESE WITH YOUR NETWORK
 const char WIFI_SSID[] = "YOUR_NETWORK";
 const char WIFI_PASSWORD[] = "YOUR_PASSWORD";
 */
@@ -100,5 +100,6 @@ void onTemperatureValueRequested() {
   temperaturePage.sendTemperature(temperature);
 
 }
+
 
 
