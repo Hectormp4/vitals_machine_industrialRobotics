@@ -13,9 +13,10 @@
 
 #define MAX30205_I2C_Address 0x48
 
-//* WiFi credentials - UPDATE THESE WITH YOUR NETWORK
+/* WiFi credentials - UPDATE THESE WITH YOUR NETWORK
 const char WIFI_SSID[] = "YOUR_NETWORK";
 const char WIFI_PASSWORD[] = "YOUR_PASSWORD";
+*/
 
 // Create web app instances
 UnoR4ServerFactory serverFactory;
@@ -99,4 +100,5 @@ void onTemperatureValueRequested() {
   temperaturePage.sendTemperature(temperature);
 
 }
+
 
