@@ -22,7 +22,7 @@ DIYablesWebAppServer server(serverFactory, 80, 81);  // HTTP port 80, WebSocket 
 DIYablesHomePage homePage;
 DIYablesWebTemperaturePage temperaturePage(-50.0, 80.0, "°C");  // Min: -10°C, Max: 50°C
 
-// Temperature simulation variable
+// Temperature variables
 unsigned long lastUpdate = 0;
 static float temperature;
 
@@ -98,6 +98,7 @@ void onTemperatureValueRequested() {
   temperaturePage.sendTemperature(temperature);
 
 }
+
 
 
 
