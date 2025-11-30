@@ -26,8 +26,8 @@ MAX30105 particleSensor;
 
 #define MAX_BRIGHTNESS 255
 // WiFi credentials - UPDATE THESE WITH YOUR NETWORK
-const char WIFI_SSID[] = "Hector network";
-const char WIFI_PASSWORD[] = "Swiss.!.13245";
+const char WIFI_SSID[] = "Landa";
+const char WIFI_PASSWORD[] = "8303871791";
 
 // Create WebApp server and page instances
 UnoR4ServerFactory serverFactory;
@@ -86,8 +86,6 @@ void setup() {
   int adcRange = 4096; //Options: 2048, 4096, 8192, 16384
 
   particleSensor.setup(ledBrightness, sampleAverage, ledMode, sampleRate, pulseWidth, adcRange); //Configure sensor with these settings
-}
-
   Serial.println("DIYables WebApp - Web Plotter Example");
 
   // Add home and web plotter pages
@@ -110,13 +108,11 @@ void setup() {
       delay(1000);
     }
   }
-
-  // Set up callbacks
-  webPlotterPage.onPlotterDataRequest([]() {
+    // Sets callbacks
+    webPlotterPage.onPlotterDataRequest([]() {
     Serial.println("Web client requested data");
     sendSensorData();
   });
-
   Serial.println("\nWebPlotter is ready!");
   Serial.println("Usage Instructions:");
   Serial.println("1. Connect to the WiFi network");
@@ -125,7 +121,7 @@ void setup() {
   Serial.println("4. Click on 'Web Plotter' to view real-time data");
   Serial.println("\nGenerating simulated sensor data...");
 }
-
+  
 void loop() {
   // Handle web server and WebSocket connections
   webAppsServer.loop();
@@ -203,3 +199,5 @@ void sendSensorData() {
 
     //After gathering 25 new samples recalculate HR and SP02
     maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, &spo2, &validSPO2, &heartRate, &validHeartRate);
+  }
+}
