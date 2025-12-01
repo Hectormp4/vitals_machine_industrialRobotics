@@ -51,6 +51,7 @@ void loop() {
 
       // Send temperature update every 2 seconds
   if (millis() - lastUpdate >= 2000) {
+    temperature = readTemperature();
     temperaturePage.sendTemperature(temperature);
 
     // Print temperature to Serial Monitor
@@ -60,14 +61,7 @@ void loop() {
 
     lastUpdate = millis();
   }
-
- // logic for the MAX30205
-  temperature = readTemperature();
-  Serial.print("Temperature: ");
-  Serial.print(temperature);
-  Serial.println(" °C");
-  delay(1000); // Wait 1 second before the next reading
-
+    
   delay(10);  // Small delay for stability
 }
 
@@ -98,6 +92,7 @@ void onTemperatureValueRequested() {
   temperaturePage.sendTemperature(temperature);
 
 }
+
 
 
 
