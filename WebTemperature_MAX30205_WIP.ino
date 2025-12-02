@@ -3,10 +3,8 @@
 #include "Protocentral_MAX30205.h"
 
 MAX30205 tempSensor;
-
-// WiFi credentials - UPDATE THESE WITH YOUR NETWORK
 const char WIFI_SSID[] = "YOUR NETWRK";
-const char WIFI_PASSWORD[] = "NETWRK PASSWRD";
+const char WIFI_PASSWORD[] = "NETWRK PASS";
 
 // Create web app instances
 UnoR4ServerFactory serverFactory;
@@ -68,13 +66,11 @@ void loop() {
   delay(10);  // Small delay for stability
 }
 
-/*
- * Callback function called when web interface requests temperature value
- * Send current temperature value to web interface
- */
+
+//callback
 void onTemperatureValueRequested() {
   Serial.println("Temperature value requested from web interface");
-  // Send current temperature value (config is automatically sent by the library)
+
+  // Send current temperature value
   temperaturePage.sendTemperature(temperature);
 }
-
