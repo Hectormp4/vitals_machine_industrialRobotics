@@ -2,8 +2,8 @@
 #include <Wire.h>
 #define MAX30205_I2C_Address 0x48
 // WiFi credentials - UPDATE THESE WITH YOUR NETWORK
-const char WIFI_SSID[] = "Hector network";
-const char WIFI_PASSWORD[] = "Swiss.!.13245";
+const char WIFI_SSID[] = "NETWORK_NAME";
+const char WIFI_PASSWORD[] = "NETWORK_PASSWORD";
 // Create web app instances
 UnoR4ServerFactory serverFactory;
 DIYablesWebAppServer server(serverFactory, 80, 81);  // HTTP port 80, WebSocket port 81
@@ -64,3 +64,4 @@ void onTemperatureValueRequested() {
   // Send current temperature value (config is automatically sent by the library)
   temperaturePage.sendTemperature(temperature);
 }
+
