@@ -7,9 +7,8 @@ MAX30105 particleSensor;
 
 #define MAX_BRIGHTNESS 255
 
-// WiFi credentials - UPDATE THESE WITH YOUR NETWORK
-const char WIFI_SSID[] = "Hector network";
-const char WIFI_PASSWORD[] = "Swiss.!.13245";
+const char WIFI_SSID[] = "YOUR NETWKK";
+const char WIFI_PASSWORD[] = "NETWRK PASS";
 
 // Create WebApp server and page instances
 UnoR4ServerFactory serverFactory;
@@ -21,7 +20,7 @@ DIYablesWebPlotterPage webPlotterPage;
 unsigned long lastDataTime = 0;
 const unsigned long DATA_INTERVAL = 100;  // Send data every 100ms
 
-// Sensor buffers
+// Sensor variable
 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
 uint16_t irBuffer[100];
 uint16_t redBuffer[100];
@@ -39,7 +38,7 @@ int8_t validHeartRate = 0;
 byte pulseLED = 11;
 byte readLED = 13;
 
-// Sample collection variables
+// Sample collection 
 byte sampleIndex = 0;
 bool initialSamplesCollected = false;
 unsigned long lastSampleTime = 0;
@@ -92,21 +91,15 @@ void setup() {
     }
   }
 
-  // Set callback for data requests - THIS MUST PRINT TO SERIAL!
+  // Set callback
   webPlotterPage.onPlotterDataRequest([]() {
-    // The web plotter reads from Serial output
-    // Format: value1 value2 value3 (space-separated)
-    // Sending: Heart Rate, SpO2, IR Signal (scaled)
     if (initialSamplesCollected) {
-      // Only send valid heart rate, otherwise send 0
       if (validHeartRate) {
         Serial.print(heartRate);
       } else {
         Serial.print(0);
       }
       Serial.print(" ");
-      
-      // Only send valid SpO2, otherwise send 0
       if (validSPO2) {
         Serial.print(spo2);
       } else {
@@ -131,7 +124,6 @@ void setup() {
 }
 
 void loop() {
-  // CRITICAL: Handle web server and WebSocket connections - MUST run frequently!
   webAppsServer.loop();
 
   // Non-blocking sensor check
@@ -145,7 +137,6 @@ void loop() {
 }
 
 void collectSample() {
-  // Check if new data is available (non-blocking)
   if (particleSensor.available()) {
     digitalWrite(readLED, !digitalRead(readLED));
 
@@ -162,8 +153,7 @@ void collectSample() {
       initialSamplesCollected = true;
 
       // Calculate heart rate and SpO2
-      maxim_heart_rate_and_oxygen_saturation(irBuffer, bufferLength, redBuffer, 
-                                              &spo2, &validSPO2, &heartRate, &validHeartRate);
+Maxim_heart_rate_and_oxygen_saturation (irBuffer, bufferLength, redBuffer,  &spo2, &validSPO2, &heartRate, &validHeartRate);
 
       // Print diagnostics (but not in plotter format - use different format)
       Serial.print(F("HR="));
