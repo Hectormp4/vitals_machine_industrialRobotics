@@ -153,7 +153,7 @@ void collectSample() {
       initialSamplesCollected = true;
 
       // Calculate heart rate and SpO2
-Maxim_heart_rate_and_oxygen_saturation (irBuffer, bufferLength, redBuffer,  &spo2, &validSPO2, &heartRate, &validHeartRate);
+      maxim_heart_rate_and_oxygen_saturation (irBuffer, bufferLength, redBuffer,  &spo2, &validSPO2, &heartRate, &validHeartRate);
 
       // Print diagnostics (but not in plotter format - use different format)
       Serial.print(F("HR="));
@@ -174,3 +174,4 @@ Maxim_heart_rate_and_oxygen_saturation (irBuffer, bufferLength, redBuffer,  &spo
     }
   }
 }
+
