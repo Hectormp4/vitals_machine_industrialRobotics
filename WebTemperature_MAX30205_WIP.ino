@@ -5,8 +5,8 @@
 MAX30205 tempSensor;
 
 // WiFi credentials - UPDATE THESE WITH YOUR NETWORK
-const char WIFI_SSID[] = "Hector network";
-const char WIFI_PASSWORD[] = "Swiss.!.13245";
+const char WIFI_SSID[] = "YOUR NETWRK";
+const char WIFI_PASSWORD[] = "NETWRK PASSWRD";
 
 // Create web app instances
 UnoR4ServerFactory serverFactory;
@@ -77,3 +77,4 @@ void onTemperatureValueRequested() {
   // Send current temperature value (config is automatically sent by the library)
   temperaturePage.sendTemperature(temperature);
 }
+
