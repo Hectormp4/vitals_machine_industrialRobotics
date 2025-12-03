@@ -7,8 +7,8 @@ MAX30105 particleSensor;
 
 #define MAX_BRIGHTNESS 255
 
-const char WIFI_SSID[] = "Nacho WiFi";
-const char WIFI_PASSWORD[] = "WERaw3s0me!";
+const char WIFI_SSID[] = "NETWORK NAME";
+const char WIFI_PASSWORD[] = "NETWORK PASS";
 
 // Create WebApp server and page instances
 UnoR4ServerFactory serverFactory;
@@ -177,3 +177,4 @@ void sendVitalSigns() {
   Serial.print(F(", SPO2="));
   Serial.println(displaySpo2, DEC);
 }
+
